@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Antonio', sans-serif;
+  font-family: 'Spartan', sans-serif;
+  
+  background-color: hsl(240,67%,8%);
+  color:white;
+  background-image: url('../public/assets/background-stars.svg');
 }
 
 a {
@@ -14,3 +20,4 @@ a {
 * {
   box-sizing: border-box;
 }
+
