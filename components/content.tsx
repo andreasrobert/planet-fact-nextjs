@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {data} from './data'
 
@@ -15,6 +15,16 @@ const Container= styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width:158vh){
+  width: 100%;
+}
+
+@media screen and (max-width:113.5vh){
+flex-direction: column;
+
+}
+
 `;
 
 const Auth = styled.div`
@@ -31,6 +41,16 @@ const Antonio = styled.h1`
   letter-spacing:  0.136vh;
   margin-top: 0vh;
   cursor: pointer;
+
+@media screen and (max-width:113.5vh){
+font-size:  7vw;
+}
+
+@media screen and (max-width:65vh){
+text-align: center;
+font-size:  11vw;
+}
+
 `;
 
 const Spartan = styled.p`
@@ -53,6 +73,18 @@ const Spartan = styled.p`
       cursor: pointer;
   }
 
+  @media screen and (max-width:113.5vh){
+margin-top: -2vw;
+font-size:  1.5vw;
+
+}
+
+@media screen and (max-width:65vh){
+text-align: center;
+font-size: 2.7vw;
+}
+
+
 
 `;
 
@@ -62,12 +94,26 @@ height: 1.4vh;
 margin-top: -5.5vh;
 margin-left: 1vh;
 cursor: pointer;
+@media screen and (max-width:113.5vh){
+margin-top: -3.7vw;
+}
+
+
+
 `;
 
 const BoxRight =  styled.div`
 /* height: 17.51vh; */
 height: 100%;
 width:47.87vh;
+@media screen and (max-width:113.5vh){
+display: flex;
+width:95%;
+}
+
+@media screen and (max-width:65vh){
+justify-content: center;
+}
 
 `;
 
@@ -76,6 +122,14 @@ const BoxLeft =  styled.div`
 height: 40vh;
 width:40vh;
 margin-right: 21vh;
+@media screen and (max-width:113.5vh){
+    height: 30vw;
+    width:30vw;
+    margin-right: 0px;
+    margin-bottom: 10vw;
+
+}
+
 `;
 
 const LeftContainer = styled.div`
@@ -84,6 +138,10 @@ width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
+@media screen and (max-width:65vh){
+    margin-bottom: 23px;
+}
+
 `;
 
 const Button = styled.div`
@@ -125,6 +183,11 @@ cursor: pointer;
 background-color: hsl(240,17%,16%);
 }
 
+@media screen and (max-width:113.5vh){
+width:77%;
+height: 6.4vw;
+}
+
 `;
 
 const SpartanBut = styled.p`
@@ -139,24 +202,109 @@ const SpartanBut = styled.p`
       color:hsl(240,6%,54%);
   }
 
+@media screen and (max-width:113.5vh){
+    margin-top: 2vw;
+    margin-left: 2vw;
+    font-size:  1.35vw;
+
+}
+
+
 `;
 
 const Source = styled.div`
 margin-top: 6vh;
 display: flex;
 align-items: center;
+
+@media screen and (max-width:113.5vh){
+margin-top: 4vw;
+}
+
+@media screen and (max-width:65vh){
+justify-content: center;
+}
 `;
 
 
-
-import mercury from '../public/assets/planet-mercury.svg';
-import venus from '../public/assets/planet-venus.svg';
-
-
-const planetsMap = {
-    mercury,
-    venus,
+const Details = styled.div`
+@media screen and (max-width:113.5vh){
+width:50%;
+&#button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
+}
+
+@media screen and (max-width:65vh){
+    width:90%;
+
+&#button{
+    display: none
+}
+}
+
+`;
+
+const Mobile = styled.div`
+display:none;
+width: 100vw;
+
+@media screen and (max-width:65vh){
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -60px;
+    margin-bottom: 55px;
+    height: 70px;
+    border-bottom: 1px solid hsl(240,17%,26%); 
+}
+`;
+
+const HeaderMobile= styled.h3`
+  font-family: 'Spartan', sans-serif;
+  margin-top: 27px;
+  margin-bottom: 0px;
+  line-height: 38px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border-bottom: 0.4vh solid transparent; 
+
+  
+  &.ImMERCURY, &.ImNotMERCURY:hover{
+    border-bottom: 0.4vh solid hsl(194,48%,49%); 
+  }
+  &.ImVENUS, &.ImNotVENUS:hover{
+    border-bottom: 0.4vh solid hsl(33,82%,61%); 
+  }
+  &.ImEARTH, &.ImNotEARTH:hover{
+    border-bottom: 0.4vh solid hsl(263, 67%, 51%); 
+  }
+  &.ImMARS, &.ImNotMARS:hover{
+    border-bottom: 0.4vh solid hsl(10, 63%, 51%); 
+  }
+  &.ImJUPITER, &.ImNotJUPITER:hover{
+    border-bottom: 0.4vh solid hsl(2, 68%, 53%); 
+  }
+  &.ImSATURN, &.ImNotSATURN:hover{
+    border-bottom: 0.4vh solid hsl(17, 73%, 46%); 
+  }
+  &.ImURANUS, &.ImNotURANUS:hover{
+    border-bottom: 0.4vh solid  hsl(169, 73%, 44%); 
+  }
+  &.ImNEPTUNE, &.ImNotNEPTUNE:hover{
+    border-bottom: 0.4vh solid  hsl(222, 87%, 56%); 
+  }
+
+  &.sad{
+      color:hsl(240,6%,54%);
+  }
+
+`;
+
 
 
 function Content(props:{rocket:string}) {
@@ -165,24 +313,45 @@ function Content(props:{rocket:string}) {
 
     const[planetImage, setPlanetImg]= useState("planet")
 
-    // const a = require(`${focusOn[0].images.planet}`)
-    // @ts-ignore
-    const a = planetsMap[focusOn[0].images.planet] || mercury;
+    let imgLink = require(`../public/assets/${focusOn[0].images.planet}`)
 
-    console.log(focusOn[0].images)
+    useEffect(()=>{
+        setPlanetImg("planet")
 
-    if(planetImage==="internal"){ const a = require("../public/assets/planet-mercury.svg")}
+    },[props])
+
+    if(planetImage==="internal"){  imgLink =require(`../public/assets/${focusOn[0].images.internal}`)}
+    if(planetImage==="geology"){  imgLink =require(`../public/assets/${focusOn[0].images.geology}`)}
+
+    const handleClick = ()=>{
+        document.getElementById('title')?.scrollIntoView({ behavior: 'smooth'})
+    }
+
+
 
   return (
     <>
       <Container>
+
+        <Mobile>
+            <HeaderMobile onClick={()=>{setPlanetImg("planet")}} className={planetImage==="planet"?`Im${props.rocket}`:`ImNot${props.rocket} sad`}>OVERVIEW</HeaderMobile>
+            <HeaderMobile onClick={()=>{setPlanetImg("internal")}} className={planetImage==="internal"?`Im${props.rocket}`:`ImNot${props.rocket} sad`}>STRUCTURE</HeaderMobile>
+            <HeaderMobile onClick={()=>{setPlanetImg("geology")}} className={planetImage==="geology"?`Im${props.rocket}`:`ImNot${props.rocket} sad`}>SURFACE</HeaderMobile>
+            
+
+
+        </Mobile>
+
+
+
         <LeftContainer>
         <BoxLeft>
-        <Image src={a} alt="" className="planet" layout="responsive" />
+        <Image src={imgLink} alt="" className="planet" layout="responsive" />
         </BoxLeft>
         </LeftContainer>
         
         <BoxRight>
+            <Details>
             <Antonio id="title" onClick={() => document.getElementById('header')?.scrollIntoView({ behavior: 'smooth'})}>
                 {focusOn[0].name}
             </Antonio>
@@ -195,24 +364,27 @@ function Content(props:{rocket:string}) {
             <a href={focusOn[0].overview.source}><Spartan className="wiki">Wikipedia</Spartan></a>
             <SourceImgContainer>
             <a href={focusOn[0].overview.source}>
-            <Image src={require("../public/assets/planet-mercury.svg")} alt="" className="planet" layout="responsive" />
+            <Image src={require("../public/assets/icon-source.svg")} alt="" className="planet" layout="responsive" />
             </a>
             </SourceImgContainer>
            
             </Source>
-            
-            <Button onClick={()=>setPlanetImg("planet")} className={planetImage==="planet"?`Im${props.rocket}`:"notMe"}>
+            </Details>
+            <Details id="button">
+            <Button onClick={()=>{setPlanetImg("planet");handleClick()}} className={planetImage==="planet"?`Im${props.rocket}`:"notMe"}>
                 <SpartanBut className="numb">01</SpartanBut>
                 <SpartanBut>OVERVIEW</SpartanBut>
             </Button>
-            <Button onClick={()=>setPlanetImg("internal")} className={planetImage==="internal"?`Im${props.rocket}`:"notMe"}>
+            <Button onClick={()=>{setPlanetImg("internal");handleClick()}} className={planetImage==="internal"?`Im${props.rocket}`:"notMe"}>
                 <SpartanBut className="numb">02</SpartanBut>
                 <SpartanBut>INTERNAL STRUCTURE</SpartanBut>
             </Button>
-            <Button onClick={()=>setPlanetImg("geology")} className={planetImage==="geology"?`Im${props.rocket}`:"notMe"}>
+            <Button onClick={()=>{setPlanetImg("geology");handleClick()}} className={planetImage==="geology"?`Im${props.rocket}`:"notMe"}>
                 <SpartanBut className="numb">03</SpartanBut>
                 <SpartanBut>SURFACE GEOLOGY</SpartanBut>
             </Button>
+            </Details>
+
         </BoxRight>
 
       </Container>

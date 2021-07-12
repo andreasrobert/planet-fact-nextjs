@@ -12,6 +12,18 @@ const Container= styled.div`
   align-items: center;
   border-bottom: 1px solid hsl(240,17%,26%);  
   justify-content: space-between;
+
+  @media screen and (max-width:128vh){
+  flex-direction: column;
+  align-items: center;
+  height: 18.7vh;
+
+}
+@media screen and (max-width:65vh){
+display: none;
+}
+
+
 `;
 
 const Auth = styled.div`
@@ -23,7 +35,19 @@ width:100%;
 &#logo{
   justify-content: flex-start;
   padding-left: 5.25vh;
+  
 }
+
+@media screen and (max-width:128vh){
+  justify-content: space-evenly !important;
+  &#logo{
+  height: 7.5vh;
+  
+}
+
+
+}
+
 `;
 
 
@@ -70,6 +94,42 @@ const Spartan = styled.h3`
     border-top: 0.4vh solid hsl(222, 87%, 56%); 
   }
 
+  @media screen and (max-width:128vh){
+    &.MERCURY:hover{
+    border-top: 0.4vh solid transparent; 
+    border-bottom: 0.4vh solid hsl(194,48%,49%); 
+  }
+  &.VENUS:hover{
+    border-top: 0.4vh solid transparent; 
+    border-bottom: 0.4vh solid hsl(33,82%,61%); 
+  }
+  &.EARTH:hover{
+    border-top: 0.4vh solid transparent;
+    border-bottom: 0.4vh solid hsl(263, 67%, 51%); 
+  }
+  &.MARS:hover{
+    border-top: 0.4vh solid transparent;
+    border-bottom: 0.4vh solid hsl(10, 63%, 51%); 
+  }
+  &.JUPITER:hover{
+    border-top: 0.4vh solid transparent;
+    border-bottom: 0.4vh solid hsl(2, 68%, 53%); 
+  }
+  &.SATURN:hover{
+    border-top: 0.4vh solid transparent;
+    border-bottom: 0.4vh solid hsl(17, 73%, 46%); 
+  }
+  &.URANUS:hover{
+    border-top: 0.4vh solid transparent;
+    border-bottom: 0.4vh solid hsl(169, 73%, 44%); 
+  }
+  &.NEPTUNE:hover{
+    border-top: 0.4vh solid transparent;
+    border-bottom: 0.4vh solid hsl(222, 87%, 56%); 
+  }
+
+  margin-right: 0;
+}
 `;
 
 

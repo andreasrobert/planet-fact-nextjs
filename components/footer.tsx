@@ -18,8 +18,13 @@ const Container= styled.div`
 
   @media screen and (max-width:158vh){
   width: 100%;
-
 }
+
+@media screen and (max-width:65vh){
+flex-direction: column;
+margin-top: 4vh;
+
+  }
 
 `;
 
@@ -36,6 +41,19 @@ const Antonio = styled.h2`
   letter-spacing: -0.2vh;
   margin-left: 3vh;
   margin-top: -0.5vh;
+
+  @media screen and (max-width:128vh){
+    font-size: 4vw;
+    margin-left: 2.5vh;
+}
+
+@media screen and (max-width:65vh){
+    font-size: 7vw;
+    letter-spacing: -0.05vh;
+    margin-top: 0.3vh;
+    margin-right: 2.5vh;
+  }
+
 `;
 
 const Spartan = styled.h4`
@@ -45,6 +63,17 @@ const Spartan = styled.h4`
   color:hsl(240,6%,54%);
   margin-top: 3vh;
   margin-left: 3vh;
+
+  @media screen and (max-width:128vh){
+    margin-top: 2vh;
+    margin-left: 2.5vh;
+    font-size: 1vw;
+  }
+@media screen and (max-width:65vh){
+margin-top: 2.2vh;
+margin-left: 2.5vh;
+font-size: 2.5vw;  
+}
 `;
 
 
@@ -55,9 +84,27 @@ border: 1px solid hsl(240,17%,26%);
 
 
 @media screen and (max-width:158vh){
-background-color: blue;
 width: 23.5%;
 height: 11.5vw;
+}
+
+@media screen and (max-width:128vh){
+width: 23.5%;
+height: 11.5vw;
+}
+
+@media screen and (max-width:113.5vh){
+width: 23.5%;
+height: 11.5vw;
+}
+
+@media screen and (max-width:65vh){
+margin-bottom: 1vh;
+background-color: transparent;
+width: 95%;
+height: 12vw;
+display: flex;
+justify-content: space-between  ;
 }
 
 `;
