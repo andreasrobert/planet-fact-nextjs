@@ -346,7 +346,7 @@ function Content(props:{rocket:string}) {
 
         <LeftContainer>
         <BoxLeft>
-        <Image src={imgLink} alt="" className="planet" layout="responsive" />
+        <Image src={imgLink} alt="" className="planet" layout="responsive" priority={true} loading="eager" />
         </BoxLeft>
         </LeftContainer>
         
