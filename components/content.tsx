@@ -313,15 +313,16 @@ function Content(props:{rocket:string}) {
 
     const[planetImage, setPlanetImg]= useState("planet")
 
-    let imgLink = require(`../public/assets/${focusOn[0].images.planet}`)
+    let imgLink = focusOn[0].images.planet
+    
 
     useEffect(()=>{
         setPlanetImg("planet")
 
     },[props])
 
-    if(planetImage==="internal"){  imgLink =require(`../public/assets/${focusOn[0].images.internal}`)}
-    if(planetImage==="geology"){  imgLink =require(`../public/assets/${focusOn[0].images.geology}`)}
+    if(planetImage==="internal"){  imgLink = focusOn[0].images.internal}
+    if(planetImage==="geology"){  imgLink = focusOn[0].images.geology}
 
     const handleClick = ()=>{
         document.getElementById('title')?.scrollIntoView({ behavior: 'smooth'})
@@ -346,7 +347,7 @@ function Content(props:{rocket:string}) {
 
         <LeftContainer>
         <BoxLeft>
-        <Image src={imgLink} alt="" className="planet" layout="responsive" priority={true} loading="eager" />
+        <Image src={`/assets/${imgLink}`} alt="" className="planet" width="378" height="400" layout="responsive" priority={true} loading="eager" />
         </BoxLeft>
         </LeftContainer>
         
