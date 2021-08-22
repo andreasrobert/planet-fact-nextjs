@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import backDrop from "../public/assets/background-stars.svg";
 
 const Container = styled.div`
   width: 100vw;
