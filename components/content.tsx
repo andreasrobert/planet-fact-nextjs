@@ -55,7 +55,7 @@ const Antonio = styled.h1`
   }
 `;
 
-const Spartan = styled.p`
+const Spartan = styled(motion.p)`
   font-family: "Spartan", sans-serif;
   font-weight: 400;
   line-height: 2;
@@ -323,6 +323,8 @@ function Content(props: { rocket: string }) {
     setPlanetState((prev) => !prev);
   };
 
+  let focus = (planetImage)
+
   return (
     <>
       <Container>
@@ -408,15 +410,33 @@ function Content(props: { rocket: string }) {
             >
               {focusOn[0].name}
             </Antonio>
-            <Spartan>{focusOn[0].overview.content}</Spartan>
+
+            {/* OOVEEEER HEEEREEEE !!! */}
+
+            {/* OOVEEEER HEEEREEEE !!! */}
+
+            {/* OOVEEEER HEEEREEEE !!! */}
+
+            {/* OOVEEEER HEEEREEEE !!! */}
+
+            {/* OOVEEEER HEEEREEEE !!! */}
+
+
+            <Spartan
+            key={planetImage}
+            variants={smallTextVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            >{focusOn[0][planetImage as 'planet' | 'internal' | 'geology'].content}</Spartan>
 
             <Source>
               <Spartan className="source">Source :</Spartan>
-              <a href={focusOn[0].overview.source}>
+              <a href={focusOn[0].planet.source}>
                 <Spartan className="wiki">Wikipedia</Spartan>
               </a>
               <SourceImgContainer>
-                <a href={focusOn[0].overview.source}>
+                <a href={focusOn[0].planet.source}>
                   <Image
                     src={require("../public/assets/icon-source.svg")}
                     alt=""
@@ -511,5 +531,20 @@ const textVariants = {
     opacity: 0,
     x: 50,
     transition: { duration: 1 },
+  },
+};
+
+const smallTextVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {  duration: 1.8 },
+  },
+  exit: {
+    opacity: 0,
+    x: 50,
+    transition: { duration: 0.2 },
   },
 };
