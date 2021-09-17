@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { setRocket } from "../redux/action"
 
 const Container = styled.div`
   width: 100vw;
@@ -110,11 +112,11 @@ const HamburgerImgContainer = styled.div`
   margin-top: 0.4vh;
 `;
 
-function HeaderPhone(props: {
-  setRocket: (arg: string) => void;
-  rocket: string;
-}) {
+function HeaderPhone() {
   const [showMenu, setShow] = useState(false);
+
+  const dispatch = useDispatch();
+
 
   const handleClick = () => {
     setShow((prev) => !prev);
@@ -136,7 +138,7 @@ function HeaderPhone(props: {
       <MenuContain className={`${showMenu}`}>
         <Menu
           onClick={() => {
-            props.setRocket("MERCURY");
+            dispatch(setRocket("MERCURY"));
             handleClick();
           }}
         >
@@ -156,7 +158,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("VENUS");
+            dispatch(setRocket("VENUS"));
             handleClick();
           }}
         >
@@ -176,7 +178,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("EARTH");
+            dispatch(setRocket("EARTH"));
             handleClick();
           }}
         >
@@ -196,7 +198,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("MARS");
+            dispatch(setRocket("MARS"));
             handleClick();
           }}
         >
@@ -216,7 +218,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("JUPITER");
+            dispatch(setRocket("JUPITER"));
             handleClick();
           }}
         >
@@ -236,7 +238,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("SATURN");
+            dispatch(setRocket("SATURN"));
             handleClick();
           }}
         >
@@ -256,7 +258,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("URANUS");
+            dispatch(setRocket("URANUS"));
             handleClick();
           }}
         >
@@ -276,7 +278,7 @@ function HeaderPhone(props: {
 
         <Menu
           onClick={() => {
-            props.setRocket("NEPTUNE");
+            dispatch(setRocket("NEPTUNE"));
             handleClick();
           }}
         >

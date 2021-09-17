@@ -3,23 +3,19 @@ import Header from "../components/header";
 import Content from "../components/content";
 import Footer from "../components/footer";
 import HeaderPhone from "../components/headerPhone";
-import { useState } from "react";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 export default function Home() {
-  const [rocket, setRocket] = useState("MERCURY");
 
   return (
+    <Provider store={store}>
     <div className={styles.container}>
-      <HeaderPhone
-        setRocket={(planet) => setRocket(planet)}
-        rocket={rocket}
-      ></HeaderPhone>
-      <Header
-        setRocket={(planet) => setRocket(planet)}
-        rocket={rocket}
-      ></Header>
-      <Content rocket={rocket}></Content>
-      <Footer rocket={rocket}></Footer>
+      <HeaderPhone />
+      <Header />
+      <Content />
+      <Footer />
     </div>
+    </Provider>
   );
 }

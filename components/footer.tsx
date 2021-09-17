@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 import { data } from "./data";
+import { useSelector, RootStateOrAny } from "react-redux";
+
 
 const Container = styled.div`
   width: 158vh;
@@ -98,8 +100,9 @@ const Box = styled(motion.div)`
   }
 `;
 
-function Footer(props: { rocket: string }) {
-  const focusOn = data.filter((planet) => planet.name == props.rocket);
+function Footer() {
+  const rocketCourse = useSelector((state:RootStateOrAny) => state.setCourse);
+  const focusOn = data.filter((planet) => planet.name == rocketCourse);
 
   return (
     <>

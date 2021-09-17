@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { setRocket } from "../redux/action"
 
 const Container = styled.div`
   width: 100vw;
@@ -118,9 +120,12 @@ const Spartan = styled.h3`
   }
 `;
 
-function Header(props: { setRocket: (arg: string) => void; rocket: string }) {
+function Header() {
+  const rocketCourse = useSelector((state:RootStateOrAny) => state.setCourse);
+  const dispatch = useDispatch();
+
   const handleClick = (whereTo: string) => {
-    if (whereTo !== props.rocket) return;
+    if (whereTo !== rocketCourse) return;
     document.getElementById("title")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -130,7 +135,7 @@ function Header(props: { setRocket: (arg: string) => void; rocket: string }) {
         <Auth id="logo">
           <Antonio
             onClick={() => {
-              handleClick(`${props.rocket}`);
+              handleClick(`${rocketCourse}`);
             }}
           >
             THE PLANETS
@@ -138,72 +143,72 @@ function Header(props: { setRocket: (arg: string) => void; rocket: string }) {
         </Auth>
         <Auth>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("MERCURY");
+              dispatch(setRocket("MERCURY"));
               handleClick("MERCURY");
             }}
           >
             MERCURY
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("VENUS");
+              dispatch(setRocket("VENUS"));
               handleClick("VENUS");
             }}
           >
             VENUS
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("EARTH");
+              dispatch(setRocket("EARTH"));
               handleClick("EARTH");
             }}
           >
             EARTH
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("MARS");
+              dispatch(setRocket("MARS"));
               handleClick("MARS");
             }}
           >
             MARS
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("JUPITER");
+              dispatch(setRocket("JUPITER"));
               handleClick("JUPITER");
             }}
           >
             JUPITER
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("SATURN");
+              dispatch(setRocket("SATURN"));
               handleClick("SATURN");
             }}
           >
             SATURN
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("URANUS");
+              dispatch(setRocket("URANUS"));
               handleClick("URANUS");
             }}
           >
             URANUS
           </Spartan>
           <Spartan
-            className={props.rocket}
+            className={rocketCourse}
             onClick={() => {
-              props.setRocket("NEPTUNE");
+              dispatch(setRocket("NEPTUNE"));
               handleClick("NEPTUNE");
             }}
           >

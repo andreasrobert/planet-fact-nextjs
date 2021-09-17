@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { data } from "./data";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import planetImg from "../public/assets/planet-mercury.svg";
-import sourceImg from "../public/assets/icon-source.svg";
+import { useSelector, RootStateOrAny } from "react-redux";
+
 
 const Box = styled(motion.div)`
   position: absolute;
@@ -294,8 +294,9 @@ const PlanetContainer = styled.div`
   }
 `;
 
-function Content(props: { rocket: string }) {
-  const focusOn = data.filter((planet) => planet.name == props.rocket);
+function Content() {
+  const rocketCourse = useSelector((state:RootStateOrAny) => state.setCourse);
+  const focusOn = data.filter((planet) => planet.name == rocketCourse);
 
   const [planetImage, setPlanetImg] = useState("planet");
   const [planetState, setPlanetState] = useState(true);
@@ -304,7 +305,7 @@ function Content(props: { rocket: string }) {
 
   useEffect(() => {
     setPlanetImg("planet");
-  }, [props]);
+  }, [rocketCourse]);
 
   if (planetImage === "internal") {
     imgLink = focusOn[0].images.internal;
@@ -335,8 +336,8 @@ function Content(props: { rocket: string }) {
             }}
             className={
               planetImage === "planet"
-                ? `Im${props.rocket}`
-                : `ImNot${props.rocket} sad`
+                ? `Im${rocketCourse}`
+                : `ImNot${rocketCourse} sad`
             }
           >
             OVERVIEW
@@ -347,8 +348,8 @@ function Content(props: { rocket: string }) {
             }}
             className={
               planetImage === "internal"
-                ? `Im${props.rocket}`
-                : `ImNot${props.rocket} sad`
+                ? `Im${rocketCourse}`
+                : `ImNot${rocketCourse} sad`
             }
           >
             STRUCTURE
@@ -359,8 +360,8 @@ function Content(props: { rocket: string }) {
             }}
             className={
               planetImage === "geology"
-                ? `Im${props.rocket}`
-                : `ImNot${props.rocket} sad`
+                ? `Im${rocketCourse}`
+                : `ImNot${rocketCourse} sad`
             }
           >
             SURFACE
@@ -454,7 +455,7 @@ function Content(props: { rocket: string }) {
                 handleClick();
               }}
               className={
-                planetImage === "planet" ? `Im${props.rocket}` : "notMe"
+                planetImage === "planet" ? `Im${rocketCourse}` : "notMe"
               }
             >
               <SpartanBut className="numb">01</SpartanBut>
@@ -466,7 +467,7 @@ function Content(props: { rocket: string }) {
                 handleClick();
               }}
               className={
-                planetImage === "internal" ? `Im${props.rocket}` : "notMe"
+                planetImage === "internal" ? `Im${rocketCourse}` : "notMe"
               }
             >
               <SpartanBut className="numb">02</SpartanBut>
@@ -478,7 +479,7 @@ function Content(props: { rocket: string }) {
                 handleClick();
               }}
               className={
-                planetImage === "geology" ? `Im${props.rocket}` : "notMe"
+                planetImage === "geology" ? `Im${rocketCourse}` : "notMe"
               }
             >
               <SpartanBut className="numb">03</SpartanBut>
